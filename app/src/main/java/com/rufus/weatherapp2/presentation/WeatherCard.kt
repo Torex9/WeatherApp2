@@ -3,6 +3,7 @@ package com.rufus.weatherapp2.presentation
 import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
@@ -18,10 +19,11 @@ import androidx.compose.ui.unit.sp
 import java.time.format.DateTimeFormatter
 import androidx.compose.material3.Text
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import com.rufus.weatherapp2.R
 import kotlin.math.roundToInt
 
-@RequiresApi(Build.VERSION_CODES.O)
+@RequiresApi(Build.VERSION_CODES.O) //(I changed this cos of version update)
 @Composable
 fun WeatherCard(
     state: WeatherState,
@@ -30,7 +32,8 @@ fun WeatherCard(
 ) {
     state.weatherInfo?.currentWeatherData?.let { data ->
         Card(
-
+            //backgroundColor = backgroundColor, (I changed this cos of version update)
+            colors = CardDefaults.cardColors(containerColor = backgroundColor),
             shape = RoundedCornerShape(10.dp),
             modifier = modifier.padding(16.dp)
         ) {
